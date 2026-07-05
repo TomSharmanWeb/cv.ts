@@ -63,8 +63,8 @@
   .toolbar::before {
     content: ''; position: absolute; left: 0; right: 0; top: 0; height: calc(100% + 1.6rem);
     z-index: -1; pointer-events: none;
-    background: linear-gradient(to bottom, var(--paper) 18%, color-mix(in srgb, var(--paper) 42%, transparent) 62%, transparent);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--paper) 68%, transparent) 8%, color-mix(in srgb, var(--paper) 26%, transparent) 55%, transparent);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
     -webkit-mask: linear-gradient(to bottom, #000 46%, transparent);
     mask: linear-gradient(to bottom, #000 46%, transparent);
   }
@@ -309,9 +309,10 @@
       <label><input type="checkbox" data-sec="about-bio" checked> About</label>
       <label><input type="checkbox" data-sec="stat-strip" checked> Key stats</label>
       <label><input type="checkbox" data-sec="highlights" checked> Highlights</label>
-      <label><input type="checkbox" data-sec="experience" checked> Experience</label>
-      <label><input type="checkbox" data-sec="exp-more" checked> Extended experience <span class="lock-tag">Earlier roles</span></label>
-      <label><input type="checkbox" data-sec="education" checked> Education</label>
+      <label><input type="checkbox" data-sec="experience" checked> Experience <span class="lock-tag">Recent</span></label>
+      <label><input type="checkbox" data-sec="exp-more"> Experience <span class="lock-tag">Older roles</span></label>
+      <label><input type="checkbox" data-sec="education" checked> Education <span class="lock-tag">Recent</span></label>
+      <label><input type="checkbox" data-sec="edu-more"> Education <span class="lock-tag">Older</span></label>
     </div>
     <button class="btn btn-primary" id="pdf-go" style="width:100%; justify-content:center;">
       <svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4L12 13.6V3h0zM5 19h14v2H5z"/></svg>
@@ -510,6 +511,8 @@
           <div class="job-desc"><p>Honorary diploma of Higher Education (whatever that means)</p></div>
         </div>
       </div>
+      <button class="exp-more-btn no-print" id="edu-more-btn" aria-expanded="false" aria-controls="edu-more">Show older education</button>
+      <div class="exp-more" id="edu-more">
       <div class="job">
         <div class="job-when">2012 – 2014</div>
         <div>
@@ -526,6 +529,7 @@
           <div class="job-desc"><p>Grade: 4 A's,B, 6 C's, D</p></div>
         </div>
       </div>
+      </div><!-- /#edu-more -->
     </div>
   </section>
 
@@ -593,16 +597,17 @@
     });
   })();
 
-  // "Show earlier roles" — reveal NewGen and older positions
-  (function () {
-    var b = document.getElementById('exp-more-btn'), more = document.getElementById('exp-more');
+  // "Show earlier / older" reveals — Experience (NewGen down) and Education (Springwood down)
+  [['exp-more-btn', 'exp-more', 'Show earlier roles', 'Show fewer roles'],
+   ['edu-more-btn', 'edu-more', 'Show older education', 'Show fewer']].forEach(function (c) {
+    var b = document.getElementById(c[0]), more = document.getElementById(c[1]);
     if (!b || !more) return;
     b.addEventListener('click', function () {
       var open = more.classList.toggle('open');
-      b.textContent = open ? 'Show fewer roles' : 'Show earlier roles';
+      b.textContent = open ? c[3] : c[2];
       b.setAttribute('aria-expanded', String(open));
     });
-  })();
+  });
 
   // Section show/hide toggles — Highlights, Experience, Education (all still print)
   [['hl-toggle', 'hl-grid'], ['exp-toggle', 'exp-list'], ['edu-toggle', 'edu-list']].forEach(function (pair) {

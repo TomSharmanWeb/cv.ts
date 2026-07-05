@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tom Sharman — CV</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="Tom Sharman — Content Operations Consultant. 12+ years building content teams, systems and production for genre-defining creators, celebrities and entrepreneurs. Brighton, England.">
+<meta name="description" content="Tom Sharman — Head of Brand and Content. 12+ years building content teams, systems and production for genre-defining creators, celebrities and entrepreneurs. Brighton, United Kingdom.">
 <link rel="canonical" href="https://cv.tomsharman.com/">
 <meta name="theme-color" content="#faf9f7">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Tom Sharman — CV">
-<meta property="og:description" content="Content Operations Consultant — 12+ years, 2.1BN views produced. Brighton, England.">
+<meta property="og:description" content="Head of Brand and Content — 12+ years, 2.1BN views produced. Brighton, United Kingdom.">
 <meta property="og:image" content="https://cv.tomsharman.com/tom-headshot.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Sharman","url":"https://tomsharman.com/","image":"https://cv.tomsharman.com/tom-headshot.jpg","jobTitle":"Content Operations Consultant","email":"contact@tomsharman.com","address":{"@type":"PostalAddress","addressLocality":"Brighton","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/tomsharmanweb/","https://www.instagram.com/tomsharman/","https://tomsharman.com/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Sharman","url":"https://tomsharman.com/","image":"https://cv.tomsharman.com/tom-headshot.jpg","jobTitle":"Head of Brand and Content","email":"contact@tomsharman.com","address":{"@type":"PostalAddress","addressLocality":"Brighton","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/tomsharmanweb/","https://www.instagram.com/tomsharman/","https://tomsharman.com/"]}</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -143,6 +143,23 @@
   .stat:last-child { border-right: none; }
   .stat b { display: block; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.45rem; line-height: 1; color: var(--ink); }
   .stat span { display: block; font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.35rem; }
+  /* Location stat → opens a map popup */
+  .stat-map { font: inherit; text-align: left; background: none; cursor: pointer; transition: background 0.2s; }
+  .stat-map:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+  .stat-map:hover b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .stat-map::after { content: '↗'; position: absolute; top: 0.7rem; right: 0.9rem; font-size: 0.72rem; color: var(--ink-faint); }
+  .stat { position: relative; }
+  .map-modal { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 5vmin;
+    background: rgba(0,0,0,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0s linear 0.25s; }
+  .map-modal.open { opacity: 1; visibility: visible; transition-delay: 0s; }
+  .map-card { position: relative; width: min(640px, 100%); background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); transform: scale(0.96); transition: transform 0.25s; }
+  .map-modal.open .map-card { transform: none; }
+  .map-card iframe { width: 100%; height: 380px; display: block; border: 0; }
+  .map-foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.85rem 1.1rem; font-family: var(--sans); font-size: 0.86rem; color: var(--ink); }
+  .map-foot a { color: var(--red); text-decoration: none; font-weight: 600; }
+  .map-close { position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(0,0,0,0.6); color: #fff; font-size: 1.25rem; line-height: 1; cursor: pointer; }
+  .map-close:hover { background: rgba(0,0,0,0.8); }
 
   /* ── Highlights widget boxes ── */
   .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
@@ -299,6 +316,13 @@
   </button>
 </div>
 <div class="lightbox" id="lightbox" aria-hidden="true"><img src="tom-headshot.jpg" alt="Tom Sharman" width="600" height="600"></div>
+<div class="map-modal no-print" id="map-modal" aria-hidden="true">
+  <div class="map-card" role="dialog" aria-modal="true" aria-label="Location: Brighton, United Kingdom">
+    <button class="map-close" id="map-close" aria-label="Close map">&times;</button>
+    <iframe id="map-frame" title="Map showing Brighton, United Kingdom" loading="lazy" src=""></iframe>
+    <div class="map-foot"><b>Brighton, United Kingdom</b><a href="https://www.openstreetmap.org/?mlat=50.8225&amp;mlon=-0.1372#map=12/50.8225/-0.1372" target="_blank" rel="noopener">Open in maps ↗</a></div>
+  </div>
+</div>
 
 <!-- PDF export options -->
 <div class="modal-overlay no-print" id="pdf-modal">
@@ -331,12 +355,11 @@
     <img class="cv-photo" src="tom-headshot.jpg" alt="Tom Sharman" width="118" height="118">
     <div class="cv-id">
       <h1 class="cv-name serif">Tom Sharman</h1>
-      <div class="cv-title">Content Operations Consultant</div>
+      <div class="cv-title">Head of Brand and Content</div>
       <div class="cv-contact">
         <span><a class="js-email" href="#">contact@tomsharman.com</a></span>
         <span>Brighton, England</span>
         <span><a href="https://www.linkedin.com/in/tomsharmanweb/" target="_blank" rel="noopener">linkedin.com/in/tomsharmanweb</a></span>
-        <span><a href="https://tomsharman.com/" target="_blank" rel="noopener">tomsharman.com</a></span>
       </div>
     </div>
   </header>
@@ -346,10 +369,10 @@
   </div>
 
   <div class="stats" id="stat-strip">
-    <div class="stat"><b>2.1BN</b><span>Views Produced</span></div>
+    <div class="stat"><b>410M</b><span>YouTube Views Produced</span></div>
+    <div class="stat"><b>2.1B</b><span>Views Generated</span></div>
     <div class="stat"><b>$7.1M</b><span>Revenue Generated</span></div>
-    <div class="stat"><b>12+ yrs</b><span>In Content</span></div>
-    <div class="stat"><b>Brighton</b><span>England</span></div>
+    <button type="button" class="stat stat-map" id="loc-btn" aria-label="Brighton, United Kingdom — show on map"><b>Brighton</b><span>United Kingdom</span></button>
   </div>
 
   <!-- ── HIGHLIGHTS ── -->
@@ -660,7 +683,7 @@
   (function () {
     var btn = document.getElementById('share-btn'), pop = document.getElementById('share-pop');
     var URL_ = (document.querySelector('link[rel="canonical"]') || {}).href || location.href;
-    var TXT = "Tom Sharman — Content Operations Consultant. 12+ years, 2.1BN views produced.";
+    var TXT = "Tom Sharman — Head of Brand and Content. 12+ years, 2.1BN views produced.";
     var u = encodeURIComponent(URL_), t = encodeURIComponent(TXT);
     pop.querySelector('[data-s="email"]').href = 'mailto:?subject=' + encodeURIComponent('Tom Sharman — CV') + '&body=' + t + '%20' + u;
     pop.querySelector('[data-s="linkedin"]').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + u;
@@ -677,6 +700,20 @@
     });
     document.addEventListener('click', function (e) { if (!pop.contains(e.target) && e.target !== btn) setOpen(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+
+  // Location stat → map popup (OpenStreetMap embed, no API key; iframe loads on first open)
+  (function () {
+    var btn = document.getElementById('loc-btn'), modal = document.getElementById('map-modal');
+    var frame = document.getElementById('map-frame'), close = document.getElementById('map-close');
+    if (!btn || !modal) return;
+    var SRC = 'https://www.openstreetmap.org/export/embed.html?bbox=-0.28%2C50.79%2C-0.01%2C50.87&layer=mapnik&marker=50.8225%2C-0.1372';
+    function open() { if (!frame.getAttribute('src')) frame.src = SRC; modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+    function shut() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+    btn.addEventListener('click', open);
+    close.addEventListener('click', shut);
+    modal.addEventListener('click', function (e) { if (e.target === modal) shut(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
   })();
 
   // Profile photo → full-res lightbox

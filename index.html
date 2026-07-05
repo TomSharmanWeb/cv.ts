@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tom Sharman — CV</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Tom Sharman — Content Operations Consultant. 12+ years building content teams, systems and production for genre-defining creators, celebrities and entrepreneurs. Brighton, England.">
+<link rel="canonical" href="https://cv.tomsharman.com/">
+<meta name="theme-color" content="#faf9f7">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Tom Sharman — CV">
+<meta property="og:description" content="Content Operations Consultant — 12+ years, 2.1BN views produced. Brighton, England.">
+<meta property="og:image" content="https://cv.tomsharman.com/tom-headshot.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tom Sharman","url":"https://tomsharman.com/","image":"https://cv.tomsharman.com/tom-headshot.jpg","jobTitle":"Content Operations Consultant","email":"contact@tomsharman.com","address":{"@type":"PostalAddress","addressLocality":"Brighton","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/tomsharmanweb/","https://www.instagram.com/tomsharman/","https://tomsharman.com/"]}</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1e;
+    --ink-soft: #4a4a52;
+    --ink-faint: #77777f;
+    --line: #e4e2dd;
+    --paper: #faf9f7;
+    --card: #ffffff;
+    --red: #e11d38;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--sans); line-height: 1.6; font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: 0.01em; }
+  em { font-style: italic; }
+  a { color: inherit; }
+
+  .wrap { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+  /* ── Toolbar (screen only) ── */
+  .toolbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; justify-content: flex-end; gap: 0.6rem;
+    max-width: 820px; margin: 0 auto; padding: 0.8rem 1.5rem;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+    padding: 0.6rem 1.1rem; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--card); color: var(--ink); text-decoration: none;
+    transition: border-color 0.2s, transform 0.12s, background 0.2s;
+  }
+  .btn:hover { border-color: #c9c6bf; transform: translateY(-1px); }
+  .btn svg { width: 15px; height: 15px; fill: currentColor; }
+  .btn-primary { background: var(--red); color: #fff; border-color: var(--red); }
+  .btn-primary:hover { background: #c4162f; border-color: #c4162f; }
+
+  /* ── Header / bio ── */
+  header.cv-head { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
+  .cv-photo {
+    width: 118px; height: 118px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    border: 1px solid var(--line); box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  }
+  .cv-id { flex: 1; min-width: 240px; }
+  .cv-name { font-size: 2.9rem; line-height: 1.02; }
+  .cv-title { font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-top: 0.5rem; }
+  .cv-contact { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; margin-top: 0.7rem; font-size: 0.82rem; color: var(--ink-soft); }
+  .cv-contact a { text-decoration: none; }
+  .cv-contact a:hover { color: var(--red); }
+  .cv-contact span { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+  .bio { margin-top: 1.8rem; font-size: 1.02rem; line-height: 1.72; color: var(--ink-soft); max-width: 64ch; }
+  .bio strong { color: var(--ink); font-weight: 600; }
+
+  /* Stats strip */
+  .stats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .stat { flex: 1; min-width: 120px; padding: 0.9rem 1rem; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat b { display: block; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.45rem; line-height: 1; color: var(--ink); }
+  .stat span { display: block; font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.35rem; }
+
+  /* ── Section headings ── */
+  .sec { margin-top: 2.6rem; }
+  .sec-title { font-size: 1.9rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.4rem; }
+
+  /* ── Experience timeline ── */
+  .job { display: grid; grid-template-columns: 148px 1fr; gap: 1.2rem; padding: 0 0 1.5rem; }
+  .job + .job { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .job-when { font-size: 0.78rem; font-weight: 600; color: var(--red); letter-spacing: 0.02em; padding-top: 0.2rem; }
+  .job-when small { display: block; color: var(--ink-faint); font-weight: 500; margin-top: 0.15rem; letter-spacing: 0.04em; }
+  .job-co { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem; line-height: 1.15; }
+  .job-role { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); margin: 0.15rem 0 0.6rem; }
+  .job-desc { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.7; }
+  .job-desc p + p { margin-top: 0.55rem; }
+  @media (max-width: 620px) {
+    .job { grid-template-columns: 1fr; gap: 0.4rem; }
+    .cv-name { font-size: 2.3rem; }
+  }
+
+  /* ── Contact form ── */
+  .contact-card { margin-top: 1.2rem; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.6rem 1.5rem; }
+  .contact-lead { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.1rem; max-width: 56ch; }
+  form.reach { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  form.reach .full { grid-column: 1 / -1; }
+  form.reach label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.3rem; }
+  form.reach input, form.reach textarea {
+    width: 100%; font-family: var(--sans); font-size: 0.92rem; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 0.65rem 0.8rem;
+  }
+  form.reach textarea { resize: vertical; min-height: 96px; }
+  form.reach input:focus, form.reach textarea:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+  form.reach .submit-row { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.9rem; }
+  .form-note { font-size: 0.76rem; color: var(--ink-faint); }
+  @media (max-width: 520px) { form.reach { grid-template-columns: 1fr; } }
+
+  footer { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--ink-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--red); }
+
+  .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* ═══ PRINT / PDF ═══ */
+  @page { size: A4; margin: 14mm 15mm; }
+  @media print {
+    :root { --paper: #fff; }
+    html, body { background: #fff; font-size: 10.5pt; }
+    .no-print { display: none !important; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+    a { color: var(--ink) !important; text-decoration: none; }
+    .cv-photo { width: 92px; height: 92px; box-shadow: none; }
+    .cv-name { font-size: 26pt; }
+    .sec { margin-top: 16pt; }
+    .sec-title { font-size: 15pt; }
+    .stats { break-inside: avoid; }
+    .job { break-inside: avoid; page-break-inside: avoid; padding-bottom: 10pt; }
+    .job + .job { padding-top: 10pt; }
+    .bio { color: #333; font-size: 10.5pt; }
+    /* keep the red accents in the printed PDF */
+    .cv-title, .job-when, .stat b, .sec-title, .cv-name { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    footer { border-top: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Toolbar (hidden in the PDF) -->
+<div class="toolbar no-print">
+  <a class="btn" href="https://tomsharman.com/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.9a15.7 15.7 0 0 0-1.3-3.4A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a7.9 7.9 0 0 1 0-4h3.3a16.6 16.6 0 0 0 0 4H4.3zm.8 2h2.9c.3 1.2.8 2.4 1.3 3.4A8 8 0 0 1 5.1 16zm2.9-8H5.1a8 8 0 0 1 4.2-3.4A15.7 15.7 0 0 0 8 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.6 14.6 0 0 1 0-4h4.6a14.6 14.6 0 0 1 0 4zm.4 5.4c.5-1 1-2.2 1.3-3.4h2.9a8 8 0 0 1-4.2 3.4zM16.4 14a16.6 16.6 0 0 0 0-4h3.3a7.9 7.9 0 0 1 0 4h-3.3z"/></svg>
+    tomsharman.com
+  </a>
+  <button class="btn btn-primary" id="download-pdf">
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4L12 13.6V3h0zM5 19h14v2H5z"/></svg>
+    Download PDF
+  </button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── BIO ── -->
+  <header class="cv-head">
+    <img class="cv-photo" src="tom-headshot.jpg" alt="Tom Sharman" width="118" height="118">
+    <div class="cv-id">
+      <h1 class="cv-name serif">Tom Sharman</h1>
+      <div class="cv-title">Content Operations Consultant</div>
+      <div class="cv-contact">
+        <span><a class="js-email" href="#">contact@tomsharman.com</a></span>
+        <span>Brighton, England</span>
+        <span><a href="https://www.linkedin.com/in/tomsharmanweb/" target="_blank" rel="noopener">linkedin.com/in/tomsharmanweb</a></span>
+        <span><a href="https://tomsharman.com/" target="_blank" rel="noopener">tomsharman.com</a></span>
+      </div>
+    </div>
+  </header>
+
+  <p class="bio">
+    I'm Tom Sharman — <strong>12+ years</strong> building content teams, systems and production for genre-defining creators, celebrities and entrepreneurs. I've helped creators and brands reach hundreds of millions of people, generating <strong>$1.8M in AdSense</strong>, <strong>$2M+ in brand deals</strong> and <strong>$1.3M in subscription revenue</strong> along the way. Today I build content operations — the hiring, the systems, the strategy — for entrepreneurs who are serious about scale.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><b>2.1BN</b><span>Views Produced</span></div>
+    <div class="stat"><b>$7.1M</b><span>Revenue Generated</span></div>
+    <div class="stat"><b>12+ yrs</b><span>In Content</span></div>
+    <div class="stat"><b>Brighton</b><span>England</span></div>
+  </div>
+
+  <!-- ── EXPERIENCE ── -->
+  <section class="sec">
+    <h2 class="sec-title serif">Experience</h2>
+
+    <div class="job">
+      <div class="job-when">2026 – Present<small>Heath Media</small></div>
+      <div>
+        <div class="job-co">Ben Heath — Heath Media</div>
+        <div class="job-role">Head of Brand and Content</div>
+        <div class="job-desc"><p>I'm Head of Brand and Content for Ben Heath, one of the world's most-watched Meta ads educators — over a decade of content and 700+ videos — and his team at Heath Media. I lead brand and content across the operation, shaping how it shows up everywhere from YouTube to the products it ships, including BenHeath.AI, an assistant trained on Ben's entire video library that answers Meta and Google advertising questions grounded in his own teaching.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">2025 – Present<small>Consulting</small></div>
+      <div>
+        <div class="job-co">Sam Stoffel</div>
+        <div class="job-role">Head of Content &amp; Content Consultant</div>
+        <div class="job-desc">
+          <p>I lead strategy, operations and the content team behind Sam Stoffel's personal brand. Sam is an entrepreneur on a mission to change lives through entrepreneurship, and in eleven months we took his channel from zero to 500,000 followers. I built the team, the systems and the strategy entirely from scratch.</p>
+          <p>Alongside that I'm consulting for Liquidity Media, the group behind Outplayed.com and Odds Monkey, helping them figure out where content fits in their growth story.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Jul 2024 – May 2025</div>
+      <div>
+        <div class="job-co">Secret Leaders</div>
+        <div class="job-role">Head of Content</div>
+        <div class="job-desc">
+          <p>I relaunched Secret Leaders as a video-first podcast hosted by Dan Murray and Chris Donnelly, arguably the most credentialed co-hosting duo in UK business media. I ran the whole operation: daily social content, twice-weekly premium interviews with Deborah Meaden, James Watt, Simon Squibb and more, plus all the business and commercial side.</p>
+          <p>We grew to #2 in the UK Business Podcast charts, sitting right behind Steven Bartlett's Diary of a CEO. Sponsorship deals with Wise, Vanta, Hewlett Packard and Dubai Tourism. I also built the professional studio from scratch in 6K quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Nov 2023 – Jul 2024</div>
+      <div>
+        <div class="job-co">Swift Media</div>
+        <div class="job-role">Head of Talent Management</div>
+        <div class="job-desc"><p>Joined content syndication business Swift Media to launch their talent management division from zero, a fresh revenue stream built entirely from scratch. The focus was Food, Travel and Lifestyle. I managed clients including Bald and Bankrupt, Backpacker Ben, London Bruncher and Those Boxing Brothers.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Nov 2021 – Apr 2023</div>
+      <div>
+        <div class="job-co">Angels Management</div>
+        <div class="job-role">Chief Creative Officer</div>
+        <div class="job-desc"><p>Built Angels into the UK's number one agency for female content creators. We generated $750,000 in revenue within the first twelve months with operating margins above 50%. The roster grew to 23 exclusively managed creators with a combined following of over 20 million. On average, clients saw 5× their monthly revenue and 8× growth on social after signing.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">2021 – 2023</div>
+      <div>
+        <div class="job-co">New Waves / Who Dis</div>
+        <div class="job-role">Co-Founder &amp; Production Partner</div>
+        <div class="job-desc">
+          <p>Produced content for one of the UK's most daring and viral YouTube creators, Niko Omilana, including campaigns with BBC, Google, YouTube and JD Sports. Led production across 28 long-form videos for The Burnt Chip — eight of his top 12 all-time best performers, including all three of his most-viewed videos ever, 49 million views across our work together.</p>
+          <p>Also produced and represented Astrid Wett, Ollie Ball, Jacob Pasquill and Culture Force, and co-founded Clash of Creators, a creator-versus-creator format bringing together some of the UK's biggest YouTube names.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Jul 2021 – Nov 2021</div>
+      <div>
+        <div class="job-co">NewGen (Kairos Media)</div>
+        <div class="job-role">Account Manager</div>
+        <div class="job-desc"><p>Managed a £450K campaign for the Forza Horizon 5 launch across XBOX and LG. A month-long activation with Vikkstar, James Buckley, Aarav and Benny Central, spanning live streams, in-person events and content for both brand and creator channels.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Feb 2020 – Jun 2021</div>
+      <div>
+        <div class="job-co">38 Entertainment Group</div>
+        <div class="job-role">Head of Creative</div>
+        <div class="job-desc">
+          <p>For Gareth Bale's Ellevens Esports, I signed the first ever in-game shirt sponsorship deal in FIFA history, bringing Duracell in as the team's official kit sponsor. A genuine industry first covered across global sports and esports media.</p>
+          <p>For Combat Gaming by Mason Mount, I worked with 150+ AAA celebrities, athletes and creators on charity livestreams with EA Sports, Activision Blizzard and Epic Games. $200K raised, and a Fortnite tournament with Epic hit 10M+ live views. I also signed England and Chelsea footballer Mason Mount as a Combat ambassador.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Aug 2019 – Feb 2020</div>
+      <div>
+        <div class="job-co">Katie Price</div>
+        <div class="job-role">YouTube Manager</div>
+        <div class="job-desc"><p>Led the launch and growth of Katie Price's YouTube channel. Produced weekly videos with a team of videographers and editors. In the first month alone we hit 1 million views, 60,000 subscribers and tens of millions of media impressions across tabloid press and beyond.</p></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">From 2009<small>Aged 13</small></div>
+      <div>
+        <div class="job-co">Machinima</div>
+        <div class="job-role">Talent Scout</div>
+        <div class="job-desc"><p>In the very early days of YouTube, before "creator economy" was even a phrase, aged 13 and with my identity hidden, I landed a part-time role at Machinima, the gaming talent network. I scouted and signed YouTube gaming talent and earned a cut of their earnings. The beginning of everything, and I've been obsessed with this space ever since.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="sec no-print" id="contact">
+    <h2 class="sec-title serif">Get in touch</h2>
+    <div class="contact-card">
+      <p class="contact-lead">Available for consultancy on building content teams, strategy, systems and production. Drop me a line and I'll get back to you.</p>
+      <form class="reach" id="reach" novalidate>
+        <div>
+          <label for="r-name">Name</label>
+          <input type="text" id="r-name" name="name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="r-email">Email</label>
+          <input type="email" id="r-email" name="email" autocomplete="email" inputmode="email" required>
+        </div>
+        <div class="full">
+          <label for="r-msg">Message</label>
+          <textarea id="r-msg" name="message" required></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <span class="form-note" id="reach-note">Opens your email app — no data stored.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Tom Sharman · Brighton, England</span>
+    <span><a class="js-email" href="#">contact@tomsharman.com</a></span>
+  </footer>
+</div>
+
+<script>
+  // Email assembled at runtime (keeps it off naive scrapers)
+  var EMAIL = ['contact', 'tomsharman.com'].join('@');
+  document.querySelectorAll('.js-email').forEach(function (a) {
+    a.href = 'mailto:' + EMAIL;
+    if (a.textContent.indexOf('@') === -1) a.textContent = EMAIL;
+  });
+
+  // Download PDF — the browser's print-to-PDF with a tuned print stylesheet gives
+  // the cleanest, most faithful CV. (ponytail: native print beats bundling a PDF lib.)
+  document.getElementById('download-pdf').addEventListener('click', function () { window.print(); });
+
+  // Contact form → mailto (no backend needed; degrades gracefully)
+  document.getElementById('reach').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    var name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !msg) {
+      document.getElementById('reach-note').textContent = 'Please add your name, a valid email and a message.';
+      return;
+    }
+    var body = msg + '\n\n— ' + name + ' (' + email + ')';
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('CV enquiry from ' + name) + '&body=' + encodeURIComponent(body);
+    document.getElementById('reach-note').textContent = 'Opening your email app…';
+  });
+</script>
+</body>
+</html>

@@ -55,9 +55,18 @@
 
   /* ── Toolbar (screen only) ── */
   .toolbar {
-    position: sticky; top: 0; z-index: 20;
+    position: sticky; top: 0; z-index: 20; width: 100%;
     display: flex; justify-content: center; align-items: center; gap: 0.6rem; flex-wrap: wrap;
-    max-width: 820px; margin: 0 auto; padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+  /* Frosted blur-gradient behind the sticky bar — content softly blurs under it and fades out */
+  .toolbar::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 0; height: calc(100% + 1.6rem);
+    z-index: -1; pointer-events: none;
+    background: linear-gradient(to bottom, var(--paper) 18%, color-mix(in srgb, var(--paper) 42%, transparent) 62%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    -webkit-mask: linear-gradient(to bottom, #000 46%, transparent);
+    mask: linear-gradient(to bottom, #000 46%, transparent);
   }
   .btn {
     display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
@@ -484,13 +493,37 @@
       <h2 class="sec-title serif">Education</h2>
       <button class="hl-toggle no-print" id="edu-toggle" aria-expanded="true" aria-controls="edu-list">Hide</button>
     </div>
-    <div id="edu-list" data-placeholder="true">
+    <div id="edu-list">
       <div class="job">
-        <div class="job-when">Years</div>
+        <div class="job-when">2014 – 2016</div>
         <div>
-          <div class="job-co">School or University</div>
-          <div class="job-role">Qualification / Field of study</div>
-          <div class="job-desc"><p>Add your education here — send me the details (institution, qualification, dates) or tell me to pull them from your LinkedIn and I'll drop them straight in.</p></div>
+          <div class="job-co">Ravensbourne University London</div>
+          <div class="job-role">Bachelor's degree, Web Media</div>
+          <div class="job-desc"><p>Grade: dropout</p></div>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-when">2018 – 2018</div>
+        <div>
+          <div class="job-co">University of the Arts London</div>
+          <div class="job-role">Diploma of Higher Education</div>
+          <div class="job-desc"><p>Honorary diploma of Higher Education (whatever that means)</p></div>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-when">2012 – 2014</div>
+        <div>
+          <div class="job-co">Springwood High School Sixth Form</div>
+          <div class="job-role">A Level, Media Studies, Business, IT</div>
+          <div class="job-desc"><p>Grade: A*,B,C</p><p>Activities and societies: Business, Media, ICT</p></div>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-when">2007 – 2012</div>
+        <div>
+          <div class="job-co">Springwood High School</div>
+          <div class="job-role">Business, Maths, English, ICT, Geography, Art, RE</div>
+          <div class="job-desc"><p>Grade: 4 A's,B, 6 C's, D</p></div>
         </div>
       </div>
     </div>

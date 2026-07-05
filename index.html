@@ -73,6 +73,7 @@
   .cv-contact span { display: inline-flex; align-items: center; gap: 0.35rem; }
 
   .bio { margin-top: 1.8rem; font-size: 1.02rem; line-height: 1.72; color: var(--ink-soft); max-width: 64ch; }
+  .bio p + p { margin-top: 0.75rem; }
   .bio strong { color: var(--ink); font-weight: 600; }
 
   /* Stats strip */
@@ -81,6 +82,12 @@
   .stat:last-child { border-right: none; }
   .stat b { display: block; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.45rem; line-height: 1; color: var(--ink); }
   .stat span { display: block; font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.35rem; }
+
+  /* ── Highlights widget boxes ── */
+  .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .hl { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.15rem; font-size: 0.88rem; line-height: 1.62; color: var(--ink-soft); break-inside: avoid; }
+  .hl strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 620px) { .hl-grid { grid-template-columns: 1fr; } }
 
   /* ── Section headings ── */
   .sec { margin-top: 2.6rem; }
@@ -175,16 +182,35 @@
     </div>
   </header>
 
-  <p class="bio">
-    I'm Tom Sharman — <strong>12+ years</strong> building content teams, systems and production for genre-defining creators, celebrities and entrepreneurs. I've helped creators and brands reach hundreds of millions of people, generating <strong>$1.8M in AdSense</strong>, <strong>$2M+ in brand deals</strong> and <strong>$1.3M in subscription revenue</strong> along the way. Today I build content operations — the hiring, the systems, the strategy — for entrepreneurs who are serious about scale.
-  </p>
+  <div class="bio">
+    <p>If you've spent any time on the Internet, you've probably seen my work.</p>
+    <p>Over a decade helping content creators and brands to reach hundreds of millions of eyeballs, generating <strong>$1.6M in Adsense revenue</strong>, over <strong>$2M in Brand deals</strong>, <strong>$1.3M in Subscription revenue</strong> and over <strong>$200K for charitable causes</strong>.</p>
+    <p>I've led my career by selfishly following my own interests, spanning YouTube, culture, sport, gaming, fashion and comedy. In doing so I've had a career full of fun and more failures than I can count.</p>
+  </div>
 
   <div class="stats">
-    <div class="stat"><b>2.1BN</b><span>Views Produced</span></div>
-    <div class="stat"><b>$7.1M</b><span>Revenue Generated</span></div>
+    <div class="stat"><b>1.6BN</b><span>Views Produced</span></div>
+    <div class="stat"><b>$5.1M</b><span>Revenue Generated</span></div>
     <div class="stat"><b>12+ yrs</b><span>In Content</span></div>
     <div class="stat"><b>Brighton</b><span>England</span></div>
   </div>
+
+  <!-- ── HIGHLIGHTS ── -->
+  <section class="sec">
+    <h2 class="sec-title serif">Highlights</h2>
+    <div class="hl-grid">
+      <div class="hl">An 8-part "Biggest Menace" series featuring the UK and US' biggest pranksters, Niko Omilana and Jidion, delivering <strong>78M views</strong> and driving $390K in AdSense.</div>
+      <div class="hl">Pranked the leader of the KKK, resulting in <strong>46M longform views</strong> and a couple of billion impressions on reposted and clipped content. Many credit this as 2022's best video on YouTube.</div>
+      <div class="hl">Launched an agency for subscription creators, generating <strong>$750,000</strong> in our first 12 months of operation, managing an exclusive roster of 23. On average we 5x'd our creators' monthly earnings and 8x'd their social growth.</div>
+      <div class="hl">Relaunched Business Podcast "Secret Leaders", growing it to <strong>1st in UK Careers charts</strong> and 2nd in the UK Business charts behind Diary of a CEO. Interviewing Deborah Meadon, James Watt, Frank Smith, Tom Kerridge, Herman Hauser, Nadhim Zahawi and Simon Squibb.</div>
+      <div class="hl">Ran Combat gaming livestreams partnering with EA Sports, Activision Blizzard, EPIC Games and over 150+ celebrities to raise <strong>$200K for charity</strong>, reaching tens of millions of live viewers and over 2 billion Impressions.</div>
+      <div class="hl">Signed England and former-Chelsea footballer <strong>Mason Mount</strong> to Combat Gaming as an ambassador, alongside a roster of content creators including Manny.</div>
+      <div class="hl">Led content and creative for <strong>Gareth Bale's Esports team, Ellevens</strong>. Including signing the first in-game shirt sponsorship in FIFA with Duracell.</div>
+      <div class="hl">Organised a circus and 3 removal vans outside Downing Street and branded it <strong>"Clowning Street"</strong> to call for the resignation of Boris Johnson. I was threatened with arrest on Terrorism charges. Upon reflection, maybe not the best idea.</div>
+      <div class="hl">Partnered with The Burnt Chip to generate <strong>49M views across 28 videos</strong>. Highlights include trapping YouTubers in a London townhouse for 50 hours in total darkness, 24hr Go Kart races, a 2 week TukTuk road trip across Sri Lanka and staying in the world's deepest hotel.</div>
+      <div class="hl">Launched a student media company, <strong>Tyro Magazine</strong> reaching 40% of UK Students a month, with a small but mighty editorial team of 3 and 350 student writers.</div>
+    </div>
+  </section>
 
   <!-- ── EXPERIENCE ── -->
   <section class="sec">

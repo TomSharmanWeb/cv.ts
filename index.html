@@ -131,7 +131,9 @@
   .cv-contact a:hover { color: var(--red); }
   .cv-contact span { display: inline-flex; align-items: center; gap: 0.35rem; }
 
-  .bio { margin-top: 1.8rem; font-size: 1.02rem; line-height: 1.72; color: var(--ink-soft); max-width: 64ch; }
+  .bio { margin-top: 1.8rem; max-width: 64ch; }
+  .bio-headline { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.6rem, 3.4vw, 2.15rem); line-height: 1.28; color: var(--ink); }
+  .bio-headline em { font-style: italic; }
   .bio p + p { margin-top: 0.75rem; }
   .bio strong { color: var(--ink); font-weight: 600; }
 
@@ -340,9 +342,7 @@
   </header>
 
   <div class="bio" id="about-bio">
-    <p>If you've spent any time on the Internet, you've probably seen my work.</p>
-    <p>Over a decade helping content creators and brands to reach hundreds of millions of eyeballs, generating <strong>$1.6M in Adsense revenue</strong>, over <strong>$2M in Brand deals</strong>, <strong>$1.3M in Subscription revenue</strong> and over <strong>$200K for charitable causes</strong>.</p>
-    <p>I've led my career by selfishly following my own interests, spanning YouTube, culture, sport, gaming, fashion and comedy. In doing so I've had a career full of fun and more failures than I can count.</p>
+    <p class="bio-headline">If you've spent any time on the Internet, <em>you've probably seen my work.</em></p>
   </div>
 
   <div class="stats" id="stat-strip">

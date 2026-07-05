@@ -165,16 +165,22 @@
   .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
   .hl { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.15rem; font-size: 0.88rem; line-height: 1.62; color: var(--ink-soft); break-inside: avoid; }
   /* Cursor-reactive gradient border (mirrors the consultancy cards on the main site) */
-  .hl::before {
+  .hl, .bio-headline, #stat-strip, .contact-card { position: relative; }
+  .hl::before, .bio-headline::before, #stat-strip::before, .contact-card::before {
     content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; pointer-events: none;
     background: radial-gradient(150px circle at var(--mx, 50%) var(--my, 0%), var(--red), rgba(122,92,255,0.55) 42%, rgba(70,130,255,0.35) 65%, transparent 78%);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude;
     opacity: 0; transition: opacity 0.28s;
   }
-  .hl:hover { border-color: transparent; }
-  .hl:hover::before { opacity: 1; }
-  @media (prefers-reduced-motion: reduce), print { .hl::before { display: none; } }
+  .hl:hover, #stat-strip:hover, .contact-card:hover { border-color: transparent; }
+  .hl:hover::before, .bio-headline:hover::before, #stat-strip:hover::before, .contact-card:hover::before { opacity: 1; }
+  /* the headline has no card chrome, so give it a little room + rounding for the border to sit against */
+  .bio-headline { border-radius: 14px; padding: 0.55rem 0.85rem; margin: -0.55rem -0.85rem; }
+  @media (prefers-reduced-motion: reduce), print {
+    .hl::before, .bio-headline::before, #stat-strip::before, .contact-card::before { display: none; }
+    .bio-headline { padding: 0; margin: 0; }
+  }
   .hl strong { color: var(--ink); font-weight: 600; }
   @media (max-width: 620px) { .hl-grid { grid-template-columns: 1fr; } }
   /* Show/hide toggle for the highlights */
@@ -561,24 +567,7 @@
     <h2 class="sec-title serif">Get in touch</h2>
     <div class="contact-card">
       <p class="contact-lead">Available for consultancy on building content teams, strategy, systems and production. Drop me a line and I'll get back to you.</p>
-      <form class="reach" id="reach" novalidate>
-        <div>
-          <label for="r-name">Name</label>
-          <input type="text" id="r-name" name="name" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="r-email">Email</label>
-          <input type="email" id="r-email" name="email" autocomplete="email" inputmode="email" required>
-        </div>
-        <div class="full">
-          <label for="r-msg">Message</label>
-          <textarea id="r-msg" name="message" required></textarea>
-        </div>
-        <div class="submit-row">
-          <button type="submit" class="btn btn-primary">Send message</button>
-          <span class="form-note" id="reach-note">Opens your email app — no data stored.</span>
-        </div>
-      </form>
+      <a class="btn btn-primary" id="email-tom" href="#">Email Tom →</a>
     </div>
   </section>
 
@@ -595,6 +584,8 @@
     a.href = 'mailto:' + EMAIL;
     if (a.textContent.indexOf('@') === -1) a.textContent = EMAIL;
   });
+  var emailTom = document.getElementById('email-tom');
+  if (emailTom) emailTom.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('CV enquiry');
 
   // Download PDF — the browser's print-to-PDF with a tuned print stylesheet gives
   // the cleanest, most faithful CV. (ponytail: native print beats bundling a PDF lib.)
@@ -730,29 +721,26 @@
   // Cursor-reactive gradient border on the highlight cards
   (function () {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // The highlight grid delegates per-card; the standalone reactive elements track themselves.
     var grid = document.getElementById('hl-grid');
-    if (!grid) return;
-    grid.addEventListener('mousemove', function (e) {
+    if (grid) grid.addEventListener('mousemove', function (e) {
       var card = e.target.closest('.hl'); if (!card) return;
       var r = card.getBoundingClientRect();
       card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
       card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
     }, { passive: true });
-  })();
-
-  // Contact form → mailto (no backend needed; degrades gracefully)
-  document.getElementById('reach').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = e.target;
-    var name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
-    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !msg) {
-      document.getElementById('reach-note').textContent = 'Please add your name, a valid email and a message.';
-      return;
+    function track(el) {
+      if (!el) return;
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      }, { passive: true });
     }
-    var body = msg + '\n\n— ' + name + ' (' + email + ')';
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('CV enquiry from ' + name) + '&body=' + encodeURIComponent(body);
-    document.getElementById('reach-note').textContent = 'Opening your email app…';
-  });
+    track(document.querySelector('.bio-headline'));
+    track(document.getElementById('stat-strip'));
+    track(document.querySelector('.contact-card'));
+  })();
 </script>
 </body>
 </html>

@@ -88,6 +88,13 @@
   .hl { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.15rem; font-size: 0.88rem; line-height: 1.62; color: var(--ink-soft); break-inside: avoid; }
   .hl strong { color: var(--ink); font-weight: 600; }
   @media (max-width: 620px) { .hl-grid { grid-template-columns: 1fr; } }
+  /* Show/hide toggle for the highlights */
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.5rem; margin-bottom: 1.4rem; }
+  .sec-head .sec-title { border: 0; padding: 0; margin: 0; }
+  .hl-toggle { font-family: var(--sans); font-size: 0.76rem; font-weight: 600; color: var(--ink-soft); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; cursor: pointer; flex-shrink: 0; transition: border-color 0.2s, color 0.2s; }
+  .hl-toggle:hover { border-color: #c9c6bf; color: var(--ink); }
+  .hl-grid.collapsed { display: none; }
+  @media print { .hl-grid.collapsed { display: grid !important; } } /* always print the highlights */
 
   /* ── Section headings ── */
   .sec { margin-top: 2.6rem; }
@@ -196,9 +203,12 @@
   </div>
 
   <!-- ── HIGHLIGHTS ── -->
-  <section class="sec">
-    <h2 class="sec-title serif">Highlights</h2>
-    <div class="hl-grid">
+  <section class="sec" id="highlights">
+    <div class="sec-head">
+      <h2 class="sec-title serif">Highlights</h2>
+      <button class="hl-toggle no-print" id="hl-toggle" aria-expanded="true" aria-controls="hl-grid">Hide</button>
+    </div>
+    <div class="hl-grid" id="hl-grid">
       <div class="hl">An 8-part "Biggest Menace" series featuring the UK and US' biggest pranksters, Niko Omilana and Jidion, delivering <strong>78M views</strong> and driving $390K in AdSense.</div>
       <div class="hl">Pranked the leader of the KKK, resulting in <strong>46M longform views</strong> and a couple of billion impressions on reposted and clipped content. Many credit this as 2022's best video on YouTube.</div>
       <div class="hl">Launched an agency for subscription creators, generating <strong>$750,000</strong> in our first 12 months of operation, managing an exclusive roster of 23. On average we 5x'd our creators' monthly earnings and 8x'd their social growth.</div>
@@ -362,6 +372,17 @@
   // Download PDF — the browser's print-to-PDF with a tuned print stylesheet gives
   // the cleanest, most faithful CV. (ponytail: native print beats bundling a PDF lib.)
   document.getElementById('download-pdf').addEventListener('click', function () { window.print(); });
+
+  // Highlights show/hide toggle (always printed regardless of state)
+  (function () {
+    var t = document.getElementById('hl-toggle'), grid = document.getElementById('hl-grid');
+    if (!t || !grid) return;
+    t.addEventListener('click', function () {
+      var hidden = grid.classList.toggle('collapsed');
+      t.textContent = hidden ? 'Show' : 'Hide';
+      t.setAttribute('aria-expanded', String(!hidden));
+    });
+  })();
 
   // Contact form → mailto (no backend needed; degrades gracefully)
   document.getElementById('reach').addEventListener('submit', function (e) {

@@ -275,8 +275,15 @@
   /* ═══ PRINT / PDF ═══ */
   @page { size: A4; margin: 14mm 15mm; }
   @media print {
-    :root { --paper: #fff; }
-    html, body { background: #fff; font-size: 10.5pt; }
+    /* Always print with the light palette — even if the page is in dark mode, so
+       text is never white-on-white. Overrides the dark-theme variables too. */
+    :root, html[data-theme="dark"] {
+      --ink: #1a1a1e; --ink-soft: #4a4a52; --ink-faint: #77777f;
+      --line: #e4e2dd; --line-strong: #cfccc4;
+      --paper: #fff; --card: #fff; --red: #e11d38;
+      color-scheme: light;
+    }
+    html, body { background: #fff !important; color: #1a1a1e !important; font-size: 10.5pt; }
     .no-print { display: none !important; }
     .wrap { max-width: none; margin: 0; padding: 0; }
     a { color: var(--ink) !important; text-decoration: none; }
@@ -660,6 +667,16 @@
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
       var s = null; try { s = localStorage.getItem('cv-theme'); } catch (_) {}
       if (!s) apply(e.matches ? 'dark' : 'light');
+    });
+    // Belt-and-braces: force the light palette while printing, then restore — so a
+    // PDF exported from dark mode can never come out white-on-white.
+    var wasDark = false;
+    window.addEventListener('beforeprint', function () {
+      wasDark = root.getAttribute('data-theme') === 'dark';
+      if (wasDark) root.setAttribute('data-theme', 'light');
+    });
+    window.addEventListener('afterprint', function () {
+      if (wasDark) root.setAttribute('data-theme', 'dark');
     });
   })();
 
